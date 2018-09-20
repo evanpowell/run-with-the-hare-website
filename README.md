@@ -1,4 +1,4 @@
-# rwth-website
+# Run with the Hare Website
 
 > Run with the Hare band website
 
