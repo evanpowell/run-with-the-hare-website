@@ -13,6 +13,10 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "bootstrap-vue": "^2.0.0-rc.11",
+    "cosmicjs": "^3.2.12",
+    "dotenv": "^6.0.0",
+    "mailgun.js": "^2.0.1",
     "nuxt": "^1.0.0"
   },
   "devDependencies": {
