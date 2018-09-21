@@ -1,0 +1,100 @@
+import Vuex from 'vuex';
+import _ from 'lodash';
+
+import Request from '~/common/request';
+
+const mapGlobals = (globals) => {
+  const response = {};
+  globals.forEach((global) => {
+    response[global.slug] = global;
+  });
+  return response;
+};
+
+const mapPages = (pages) => {
+  const response = {};
+  pages.forEach((page) => {
+    response[page.slug] = page;
+    page.metafields.forEach((metafield) => {
+      page[metafield.key] = metafield;
+    });
+  });
+  return response;
+}
+
+const state = {
+  globals : {
+    header: {},
+    footer: {},
+    nav: {},
+    social: {},
+  },
+  pages:{},
+};
+
+const getters = {
+  getHeader: (state) => {
+    return state.globals.header
+  },
+  getFooter: (state) => {
+    return state.globals.footer
+  },
+  getNav: (state) => {
+      return state.globals.nav
+  },
+  getSocial: (state) => {
+      return state.globals.social
+  },
+  getPage: (state) => {
+    return (slug) => {
+      return _.find(state.pages, page => page.slug === slug);
+    }
+  },
+};
+
+const mutations = {
+  SET_HEADER : (state, payload) => {
+    state.global.header = payload
+  },
+  SET_NAV : (state, payload) => {
+    state.global.nav = payload
+  },
+  SET_SOCIAL : (state, payload) => {
+    state.global.social = payload
+  },
+  SET_FOOTER : (state, payload) => {
+    state.global.footer = payload
+  },
+  SET_PAGES: (state, payload) => {
+    state.pages = payload;
+  },
+};
+
+const actions = {
+  nuxtServerInit: async(context,payload) => {
+    const globals = await Request.getGlobals();
+    const pages = await Request.getPages();
+    if(pages) {
+      const mappedPages = mapPages(pages);
+      context.commit('SET_PAGES', mappedPages)
+    }
+    if(globals) {
+      const mappedGlobals = mapGlobals(globals);
+      context.commit('SET_HEADER' ,mappedGlobals.header.metadata)
+      context.commit('SET_NAV' ,mappedGlobals.nav)
+      context.commit('SET_SOCIAL',mappedGlobals.social.metadata)
+      context.commit('SET_FOOTER',mappedGlobals.footer.metadata)
+    }
+  },
+};
+
+const createStore = () => {
+  return new Vuex.Store({
+    state,
+    getters,
+    mutations,
+    actions
+  })
+};
+
+export default createStore;
