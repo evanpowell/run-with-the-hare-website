@@ -2,7 +2,8 @@
   <section class="container">
     <div>
       <h1>Run with the Hare</h1>
-      <h2>Home Page</h2>
+      <p>Welcome to our website! We are Run with the Hare, a traditional Irish music trio based out of Austin, Texas</p>
+      <h3 style="color: orangered;">This site is currently under construction. Please check back later! :)</h3>
     </div>
   </section>
 </template>
@@ -17,6 +18,10 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+  .container {
+    text-align: center;
+    padding-top: 5rem;
+  }
 </style>
 

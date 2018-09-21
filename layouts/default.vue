@@ -1,7 +1,9 @@
 <template>
   <div>
     <app-nav/>
-    <nuxt/>
+    <div class="main">
+      <nuxt/>
+    </div>
   </div>
 </template>
 
@@ -49,6 +51,10 @@ html {
 
 body {
   font-size: 1.6rem;
+}
+
+.main {
+  margin-top: 5rem;
 }
 </style>
 
