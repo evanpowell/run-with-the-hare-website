@@ -24,7 +24,7 @@ const mapPages = (pages) => {
 
 const state = {
   globals : {
-    header: {},
+    head: {},
     footer: {},
     nav: {},
     social: {},
@@ -33,8 +33,8 @@ const state = {
 };
 
 const getters = {
-  getHeader: (state) => {
-    return state.globals.header
+  getHead: (state) => {
+    return state.globals.head
   },
   getFooter: (state) => {
     return state.globals.footer
@@ -53,8 +53,8 @@ const getters = {
 };
 
 const mutations = {
-  SET_HEADER : (state, payload) => {
-    state.globals.header = payload
+  SET_HEAD : (state, payload) => {
+    state.globals.head = payload
   },
   SET_NAV : (state, payload) => {
     state.globals.nav = payload
@@ -82,7 +82,7 @@ const actions = {
     }
     if(globals) {
       const mappedGlobals = mapGlobals(globals);
-      context.commit('SET_HEADER' ,mappedGlobals.header.metadata)
+      context.commit('SET_HEAD' ,mappedGlobals.head.metadata)
       context.commit('SET_NAV' ,mappedGlobals.nav)
       context.commit('SET_SOCIAL',mappedGlobals.social.metadata)
       context.commit('SET_FOOTER',mappedGlobals.footer.metadata)
