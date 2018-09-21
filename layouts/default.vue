@@ -4,6 +4,24 @@
   </div>
 </template>
 
+<script>
+export default {
+  computed: {
+    header() {
+      return this.$store.getters.getHeader;
+    }
+  },
+  head() {
+    return {
+      title: this.header.site_title,
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: this.header.favicon.url },
+      ],
+    };
+  },
+};
+</script>
+
 <style>
 html {
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;

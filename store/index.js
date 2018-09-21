@@ -24,7 +24,7 @@ const mapPages = (pages) => {
 
 const state = {
   globals : {
-    head: {},
+    header: {},
     footer: {},
     nav: {},
     social: {},
@@ -33,37 +33,37 @@ const state = {
 };
 
 const getters = {
-  getHead: (state) => {
-    return state.globals.head
+  getHeader: (state) => {
+    return state.globals.header;
   },
   getFooter: (state) => {
-    return state.globals.footer
+    return state.globals.footer;
   },
   getNav: (state) => {
-      return state.globals.nav
+      return state.globals.nav;
   },
   getSocial: (state) => {
-      return state.globals.social
+      return state.globals.social;
   },
   getPage: (state) => {
     return (slug) => {
       return _.find(state.pages, page => page.slug === slug);
-    }
+    };
   },
 };
 
 const mutations = {
-  SET_HEAD : (state, payload) => {
-    state.globals.head = payload
+  SET_HEADER : (state, payload) => {
+    state.globals.header = payload;
   },
   SET_NAV : (state, payload) => {
-    state.globals.nav = payload
+    state.globals.nav = payload;
   },
   SET_SOCIAL : (state, payload) => {
-    state.globals.social = payload
+    state.globals.social = payload;
   },
   SET_FOOTER : (state, payload) => {
-    state.globals.footer = payload
+    state.globals.footer = payload;
   },
   SET_PAGES: (state, payload) => {
     state.pages = payload;
@@ -82,7 +82,7 @@ const actions = {
     }
     if(globals) {
       const mappedGlobals = mapGlobals(globals);
-      context.commit('SET_HEAD' ,mappedGlobals.head.metadata)
+      context.commit('SET_HEADER' ,mappedGlobals.header.metadata)
       context.commit('SET_NAV' ,mappedGlobals.nav)
       context.commit('SET_SOCIAL',mappedGlobals.social.metadata)
       context.commit('SET_FOOTER',mappedGlobals.footer.metadata)
