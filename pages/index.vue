@@ -1,7 +1,6 @@
 <template>
   <section class="container">
     <div>
-      <app-logo/>
       <h1 class="title">
         rwth-website
       </h1>
@@ -23,13 +22,13 @@
 </template>
 
 <script>
-import AppLogo from '~/components/AppLogo.vue'
-
 export default {
-  components: {
-    AppLogo
-  }
-}
+  computed: {
+    home() {
+      return this.$store.getters.getPage('home');
+    },
+  },
+};
 </script>
 
 <style>

@@ -13,14 +13,14 @@ const getGlobals = () => {
   const params = {
     type_slug: 'globals'
   }
-  return bucket.getObjectsByType(params).objects;
+  return bucket.getObjectsByType(params);
 };
 
 const getPages = () => {
   const params = {
     type_slug: 'pages'
   };
-  return bucket.getObjectsByType(params).objects;
+  return bucket.getObjectsByType(params);
 };
 
 export default {

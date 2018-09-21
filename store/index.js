@@ -54,16 +54,16 @@ const getters = {
 
 const mutations = {
   SET_HEADER : (state, payload) => {
-    state.global.header = payload
+    state.globals.header = payload
   },
   SET_NAV : (state, payload) => {
-    state.global.nav = payload
+    state.globals.nav = payload
   },
   SET_SOCIAL : (state, payload) => {
-    state.global.social = payload
+    state.globals.social = payload
   },
   SET_FOOTER : (state, payload) => {
-    state.global.footer = payload
+    state.globals.footer = payload
   },
   SET_PAGES: (state, payload) => {
     state.pages = payload;
@@ -71,9 +71,11 @@ const mutations = {
 };
 
 const actions = {
-  nuxtServerInit: async(context,payload) => {
-    const globals = await Request.getGlobals();
-    const pages = await Request.getPages();
+  nuxtServerInit: async (context,payload) => {
+    const globalsResponse = await Request.getGlobals();
+    const globals = globalsResponse.objects;
+    const pagesResponse = await Request.getPages();
+    const pages = pagesResponse.objects;
     if(pages) {
       const mappedPages = mapPages(pages);
       context.commit('SET_PAGES', mappedPages)
@@ -93,8 +95,8 @@ const createStore = () => {
     state,
     getters,
     mutations,
-    actions
-  })
+    actions,
+  });
 };
 
 export default createStore;
