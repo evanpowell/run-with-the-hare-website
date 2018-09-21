@@ -1,11 +1,17 @@
 <template>
   <div>
+    <app-nav/>
     <nuxt/>
   </div>
 </template>
 
 <script>
+import AppNav from '~/components/nav.vue';
+
 export default {
+  components: {
+    AppNav,
+  },
   computed: {
     header() {
       return this.$store.getters.getHeader;
