@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "description": "Run with the Hare band website",
   "author": "Evan Powell",
-  "private": true,
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
-    "start": "npm run build; HOST=0.0.0.0 nuxt start",
+    "start": "npm run build; nuxt start",
     "start:test": "npm run build; HOST=0.0.0.0 NODE_ENV=production nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
@@ -27,5 +26,8 @@
     "eslint-plugin-vue": "^4.0.0",
     "node-sass": "^4.9.3",
     "sass-loader": "^7.1.0"
+  },
+  "engines": {
+    "node": "8.11.1"
   }
 }
