@@ -16,9 +16,7 @@
     "cosmicjs": "^3.2.12",
     "dotenv": "^6.0.0",
     "mailgun.js": "^2.0.1",
-    "nuxt": "^2.0.0"
-  },
-  "devDependencies": {
+    "nuxt": "^2.0.0",
     "babel-eslint": "^8.2.1",
     "eslint": "^4.15.0",
     "eslint-friendly-formatter": "^3.0.0",
