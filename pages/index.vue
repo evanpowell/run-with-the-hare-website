@@ -21,7 +21,7 @@ export default {
 <style lang="scss" scoped>
   .container {
     text-align: center;
-    padding-top: 5rem;
+    margin-top: 5rem;
   }
 </style>
 

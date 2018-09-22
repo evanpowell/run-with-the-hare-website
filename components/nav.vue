@@ -2,7 +2,7 @@
   <div class="nav">
     <ul class="nav__list">
       <li class="nav__list-item" v-for="navElement in nav.metafields" :key="navElement.id">
-        <nuxt-link :to="navElement.value">{{ navElement.title }}</nuxt-link>
+        <nuxt-link class="nav__link" :to="navElement.value">{{ navElement.title }}</nuxt-link>
       </li>  
     </ul>
   </div>
@@ -26,29 +26,50 @@ export default {
   top: 0;
   left: 0;
   right: 0;
-  height: 5rem;
-  background-color: $color-primary;
+  height: $nav-height;
+  background-color: $color-grey-light;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  box-shadow: 0 2px 3px rgba($color-black, 0.2);
 
   &__list {
-    display: inline-flex;
     position: absolute;
     right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    padding-right: 5rem;
+    height: 100%;
+    display: inline-flex;
+    padding-right: 4rem;
   }
 
   &__list-item {
     display: block;
+    height: 100%;
 
     &:not(:last-child) {
-      padding-right: 1rem;
+      padding-right: 2.5rem;
     }
-    
-    & a {
-      color: $color-white;
-      text-decoration: none;
-    }
+  }
+
+  &__link {
+    color: $color-primary;
+    text-decoration: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: .15s ease;
+    backface-visibility: none;
+  }
+
+  &__list-item:hover &__link:not(.nuxt-link-exact-active) {
+    transform: translateY(-2px);
+    color: $color-primary-light;
+  }
+}
+
+.nuxt-link-exact-active {
+  font-weight: 700;
+  
+  &:hover {
+    cursor: default;
   }
 }
 </style>

@@ -30,7 +30,9 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+@import '~/assets/styles/variables.scss';
+
 html {
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 62.5%;
@@ -54,7 +56,7 @@ body {
 }
 
 .main {
-  margin-top: 5rem;
+  margin-top: $nav-height;
 }
 </style>
 
