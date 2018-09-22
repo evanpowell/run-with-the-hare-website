@@ -4,7 +4,6 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'Run with the Hare',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -18,20 +17,20 @@ module.exports = {
   /*
   ** Build configuration
   */
-  build: {
+  //build: {
     /*
     ** Run ESLint on save
     */
-    extend (config, { isDev, isClient }) {
-      if (isDev && isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
-  }
+    //extend (config, { isDev, isClient }) {
+    //   if (isDev && isClient) {
+    //     config.module.rules.push({
+    //       enforce: 'pre',
+    //       test: /\.(js|vue)$/,
+    //       loader: 'eslint-loader',
+    //       exclude: /(node_modules)/
+    //     })
+    //   }
+    // }
+  // }
 }
 
